@@ -1,0 +1,140 @@
+// Standard
+
+:focus {
+outline: 0;
+}
+
+::selection {
+  background: $project-white;
+}
+
+::-moz-selection {
+  background: $project-white;
+}
+
+svg {
+max-width: 100%;
+}
+
+img {
+width: 100%;
+}
+
+// Typography
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+h1, h3, h4, h5, h6 {
+	text-transform: uppercase;
+}
+
+// Layout
+
+// Structure
+.container {
+  @include flex();
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top {
+  @include flex();
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.middle {
+  @include flex();
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.bottom {
+  @include flex();
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+// Navigation
+
+.top-bar {
+  border-top: $project-grey 1rem solid;
+  padding-bottom: 0rem;
+}
+
+.menu>li>a {
+  text-transform: uppercase;
+}
+
+// Fragrances
+
+
+.fragrances {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    /* -webkit-box-orient: horizontal; */
+    z-index: 0;
+    position: relative;
+    /* position: absolute; */
+}
+
+.fragrances-left {
+    -webkit-flex: 1;
+    flex: 1;
+    z-index: 1;
+}
+.fragrances-middle {
+    -webkit-flex: 1;
+    flex: 1;
+    z-index: 1;
+    position: relative;
+}
+.fragrances-right {
+    -webkit-flex: 1;
+    flex: 1;
+    z-index: 1;
+}
+
+.overlay {
+    z-index: 10;
+    position: absolute;
+    left: 0; top: 0;
+}
+
+.overlay-text {
+    z-index: 20;
+    position: absolute;
+    padding: 2rem;
+    left: 0; bottom: 0;
+}
+
+
+.illustration {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+}
+
+// Reveal
+
+.reveal h2 {
+  font-family: 'ChronicleDisplay-XLight', serif;
+  line-height: 1;
+}
+
+// Footer
+
+.bottom {
+  background-color: $project-grey;
+}
+
+/*
+.bottom a {
+  color: $project-white;
+}
+*/

@@ -1,0 +1,22 @@
+<div class="orbit hide-for-small-only" role="region" aria-label="Featured Acts" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+  
+  <ul class="orbit-container">
+    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span><svg class="icon icon-arrow-forward"><use xlink:href="#icon-arrow-forward"></use></svg></button>
+    {% assign act_documents = site.carousel | sort:"position" %}
+	{% for act in act_documents %}
+    <li class="orbit-slide">
+      <img class="orbit-image" src="{{act.feature-image}}" alt="{{act.title}}">
+      <div class="orbit-header">
+	      <div class="row align-center expanded">
+		  <div class="small-8 columns text-center">
+	      <h1><a href="{{act.link}}">{{act.title}}</a></h1>
+	      <h4><a href="{{act.link}}">{{act.subheader}}</a></h4>
+	      </div>
+	      </div>
+	  </div>
+    </li>
+	{% endfor %}
+  </ul>
+  
+</div>

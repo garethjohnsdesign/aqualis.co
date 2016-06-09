@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+<!--
+<div class="small-12 medium-10 large-8 columns content">
+{{ content }}
+</div>
+-->
+
+<section class="container">
+	
+<!-- Top -->
+<div class="top">
+{% include navigation.html %}
+</div>
+<!-- End Top -->
+	
+<!-- Middle -->
+<div class="middle">
+{{ content }}
+</div>
+<!-- End Middle -->
+	
+<!-- Bottom -->
+<div class="bottom">
+{% include footer.html %}
+</div>
+<!-- End Bottom -->
+
+</section>
+
+</body>
+{% include scripts.html %}
+</html>
