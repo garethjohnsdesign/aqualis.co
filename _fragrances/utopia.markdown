@@ -1,6 +1,7 @@
 ---
 title: Utopia
 date: 2016-06-10 14:43:00 Z
+position: 3
 header-text: For the first fragrance in our collection we used the oldest ingredients
   in perfumery to create an ode to the first pioneers of fragrance.
 question: What are your Utopias?
