@@ -8,6 +8,8 @@ sub-text: Origin opens like a dense mass of matter, the big bang ready to explod
   of French Patchouli Heart. Finally, Indian Papyrus Oil leaves Origin with a lasting
   ancient and exotic quality, like the ancient scrolls from the beginning of time.
 question: What are your Origins?
+product-image: "/uploads/aqualis-origin.jpg"
+illustration-image: "/uploads/aqualis-origin-overlay.jpg"
 ---
 
 For the first fragrance in our collection we used the oldest ingredients in perfumery to create an ode to the first pioneers of fragrance. 
