@@ -1,7 +1,8 @@
 ---
 title: Origin
 date: 2016-06-10 14:43:00 Z
-header-text: For the first fragrance in our collection we used the oldest ingredients in perfumery to create an ode to the first pioneers of fragrance.
+header-text: For the first fragrance in our collection we used the oldest ingredients
+  in perfumery to create an ode to the first pioneers of fragrance.
 question: What are your Origins?
 product-image: "/uploads/aqualis-origin.jpg"
 illustration-image: "/uploads/aqualis-origin-overlay.jpg"
