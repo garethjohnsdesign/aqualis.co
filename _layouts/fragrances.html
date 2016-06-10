@@ -24,7 +24,7 @@
 
 <div class="row text-center">
 <div class="small-10 medium-10 large-12 columns">	
-<a href="/coda"><svg class="icon icon-arrows icon-arrow-left4"><use xlink:href="#icon-arrow-left4"></use></svg></a>
+<a href="{{ page.previous.url }}" style="visibility: {% if page.previous %}visible{% else %}hidden{% endif %}"><svg class="icon icon-arrows icon-arrow-left4"><use xlink:href="#icon-arrow-left4"></use></svg></a>	
 </div>
 </div>
 
@@ -35,14 +35,15 @@
 <div class="fragrances-middle">
 
 <div class="overlay animated fadeOut illustration">
-<img src="uploads/aqualis-utopia-overlay.jpg" />
+<img src="{{ page['illustration-image'] }}" />
 </div>
 
 <div class="overlay-text">
-<a data-open="fragrance-origin"><svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg></a>
+<a href="{{ page.next.url }}" style="visibility: {% if page.next %}visible{% else %}hidden{% endif %}"><svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg></a>
 </div>
 
-<img src="uploads/aqualis-utopia.jpg" />
+<img src="{{ page['product-image'] }}" />
+
 </div>
 <!-- End Middle -->
 
@@ -75,9 +76,9 @@
 
 <div class="reveal" id="fragrance-origin" data-reveal>
   <small class="uppercase">FRAGRANCES — 4/4</small>
-  <h1>Utopia</h1>
-  <h2>For the first fragrance in our collection we used the oldest ingredients in perfumery to create an ode to the first pioneers of fragrance.</h2> 
-  <p>Origin opens like a dense mass of matter, the big bang ready to explode.  Once the chaos has passed, Egyptian Jasmine Absolute and Turkish Rose Absolute are revealed, transforming Origin into an unexpected delicate scent. French Vanilla Bourbon, which brings a sweetness to the base of the fragrance, is complimented by the earthiness of French Patchouli Heart. Finally, Indian Papyrus Oil leaves Origin with a lasting ancient and exotic quality, like the ancient scrolls from the beginning of time.</p>
+  <h1>{{ page['title'] }}</h1>
+  <h2>{{ page['content'] }}</h2> 
+  {{ page['content'] }}
   <small>What are your Origins?</small>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
