@@ -6,6 +6,7 @@ header-text: For the first fragrance in our collection we used the oldest ingred
 question: What are your Freedoms?
 product-image: "/uploads/aqualis-freedom.jpg"
 illustration-image: "/uploads/aqualis-freedom-overlay.jpg"
+layout: fragrances
 ---
 
 Origin opens like a dense mass of matter, the big bang ready to explode. Once the chaos has passed, Egyptian Jasmine Absolute and Turkish Rose Absolute are revealed, transforming Origin into an unexpected delicate scent. French Vanilla Bourbon, which brings a sweetness to the base of the fragrance, is complimented by the earthiness of French Patchouli Heart. Finally, Indian Papyrus Oil leaves Origin with a lasting ancient and exotic quality, like the ancient scrolls from the beginning of time.
