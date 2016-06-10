@@ -75,11 +75,11 @@
 </section>
 
 <div class="reveal" id="fragrance-origin" data-reveal>
-  <small class="uppercase">FRAGRANCES — 4/4</small>
+  <small class="uppercase">FRAGRANCES — {{ page['position'] }}/4</small>
   <h1>{{ page['title'] }}</h1>
-  <h2>{{ page['content'] }}</h2> 
+  <h2>{{ page['header-text'] }}</h2> 
   {{ page['content'] }}
-  <small>What are your Origins?</small>
+  <small>{{ page['question'] }}</small>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>

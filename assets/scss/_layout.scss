@@ -70,6 +70,19 @@ h1, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+.dropdown.menu>li.is-dropdown-submenu-parent>a::after {
+content: '';
+display: block;
+width: 0;
+height: 0;
+border: inset 5px;
+border-color: #222 transparent transparent;
+border-top-style: solid;
+border-bottom-width: 0;
+right: 5px;
+margin-top: -2px;
+}
+
 // Fragrances
 
 
@@ -120,6 +133,14 @@ h1, h3, h4, h5, h6 {
   animation-iteration-count: 1;
 }
 
+.icon-arrows {
+  color: $project-grey;
+  @include transition(color .3s ease);
+  &:hover {
+    color: $project-dark-grey;
+  }
+}
+
 // Reveal
 
 .reveal h2 {
@@ -134,7 +155,68 @@ h1, h3, h4, h5, h6 {
 }
 
 /*
-.bottom a {
-  color: $project-white;
+ * Keyframes
+ */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-*/
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * CSS Page Transitions
+ * Don't forget to add vendor prefixes!
+ */
+.m-scene {
+  /** Basic styles for an animated element */
+  .scene_element {
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+
+  }
+
+  /** An element that fades in */
+  .scene_element--fadein {
+    animation-name: fadeIn;
+  }
+
+  /** An element that fades in and slides up */
+  .scene_element--fadeinup {
+    animation-name: fadeInUp;
+  }
+
+  /** An element that fades in and slides from the right */
+  .scene_element--fadeinright {
+    animation-name: fadeInRight;
+  }
+}
