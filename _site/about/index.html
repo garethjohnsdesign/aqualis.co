@@ -52,20 +52,24 @@
 <meta name="msapplication-config" content="/img/icons/browserconfig.xml">
 <meta name="theme-color" content="#2F3BA2">
 
-<!-- <link rel="stylesheet" href="/assets/css/app.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
+		
 <link rel="canonical" href="/about/">
 <link rel="alternate" type="application/rss+xml" title="Aqualis" href="/feed.xml">
 
 <link rel="stylesheet" href="https://i.icomoon.io/public/0d0b2f3d01/Aqualis/style-svg.css">
 <script defer src="https://i.icomoon.io/public/0d0b2f3d01/Aqualis/svgxuse.js"></script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '', 'auto');
+  ga('create', 'UA-78706041-1', 'auto');
   ga('send', 'pageview');
 
 </script>
@@ -74,25 +78,29 @@
 
 <body>
 
-<section class="container">
+<section class="container" id="wrap">
 	
 <!-- Top -->
 <div class="top">
 <div class="top-bar">
    <div class="top-bar-title"><a href="/"><img src="/assets/img/logo.svg" alt="Aqualis"></a></div>
    <div class="top-bar-left">
-	   <ul class="dropdown menu" data-dropdown-menu>
+	   <ul class="menu">
+<!-- 	   <ul class="dropdown menu" data-dropdown-menu> -->
+<!--
       <li>
-        <a href="#">Fragrances</a>
+        <a class="page-link" href="#">Fragrances</a>
         <ul class="menu vertical">
-	      <li><a href="/fragrances/origin">Origin</a></li>
-	      <li><a href="/fragrances/freedom">Freedom</a></li>
-          <li><a href="/fragrances/coda">Coda</a></li>
-          <li><a href="/fragrances/utopia">Utopia</a></li>
+	      <li><a class="page-link" href="/fragrances/origin" title="Origin">Origin</a></li>
+	      <li><a class="page-link" href="/fragrances/freedom" title="Freedom">Freedom</a></li>
+          <li><a class="page-link" href="/fragrances/coda" title="Coda">Coda</a></li>
+          <li><a class="page-link" href="/fragrances/utopia" title="Utopia">Utopia</a></li>
         </ul>
       </li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+-->   
+      <li><a class="page-link" href="/fragrances/origin" title="Origin">Origin</a></li>
+      <li><a class="page-link" href="/about" title="About">About</a></li>
+      <li><a class="page-link" href="/contact" title="Contact">Contact</a></li>
     </ul>
    </div>
 </div>
@@ -101,17 +109,15 @@
 	
 <!-- Middle -->
 <div class="middle">
-<article class="page">
-	  
-  <div class="row expanded align-center">
-  <div class="small-11 medium-7 columns collapse">
-  
-  <header class="page-header">
-    <h1 class="page-title">About</h1>
-  </header>
-  
-  <div class="page-content">
-    <p>Aqualis is an amalgam of ‘Aqua’ and ‘Qualis’, the two founding concepts behind our brand ethos. The term ‘Aqua’ relates to the fragrances, the perfume, the very essence of the brand. ‘Qualis’, which derives from the Latin word ‘Qualia’, is a philosophical term used to define the subjective properties of experience, characterised by a rendering of the unfamiliar into the familiar. Qualia define who we are and how we use all of our senses to interpret the world we live in; a badge of individuality.</p>
+<div class="row expanded align-center">
+<div class="small-11 medium-7 columns collapse">
+
+<header class="page-header">
+<h1 class="page-title">About</h1>
+</header>
+
+<div class="page-content">
+<p>Aqualis is an amalgam of ‘Aqua’ and ‘Qualis’, the two founding concepts behind our brand ethos. The term ‘Aqua’ relates to the fragrances, the perfume, the very essence of the brand. ‘Qualis’, which derives from the Latin word ‘Qualia’, is a philosophical term used to define the subjective properties of experience, characterised by a rendering of the unfamiliar into the familiar. Qualia define who we are and how we use all of our senses to interpret the world we live in; a badge of individuality.</p>
 
 <p>Aqualis is about each customer’s individual interpretation of the fragrance and their personal experience and journey; we want to know how each fragrance makes them feel. Our philosophy is to build a marriage between fine fragrance and one’s individuality. We create fragrances that push the boundaries of conventional perfumery by using ingredients that have been meticulously selected from all around the world and couple them with a range of concepts depicted by way of stunning imagery.</p>
 
@@ -127,11 +133,9 @@
 
 <p>Steyn and Leo will continue working together to create unique experiences and fragrances for the consumers.</p>
 
-  </div>
-  </div>
-  </div>
-
-</article>
+</div>
+</div>
+</div>
 
 </div>
 <!-- End Middle -->
@@ -156,6 +160,8 @@
 
 </section>
 
+
+<script src="/assets/js/script.js"></script>
 </body>
 <script src="/assets/js/min/app-min.js"></script>
 </html>

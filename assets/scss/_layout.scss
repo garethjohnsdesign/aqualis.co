@@ -192,31 +192,33 @@ margin-top: -2px;
   }
 }
 
-/*
- * CSS Page Transitions
- * Don't forget to add vendor prefixes!
- */
-.m-scene {
-  /** Basic styles for an animated element */
-  .scene_element {
-    animation-duration: 0.25s;
-    transition-timing-function: ease-in;
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 10px, 0);
+            transform: translate3d(0, 10px, 0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 10px, 0);
+            transform: translate3d(0, 10px, 0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.middle {
+    animation-duration: .38s;
     animation-fill-mode: both;
-
-  }
-
-  /** An element that fades in */
-  .scene_element--fadein {
-    animation-name: fadeIn;
-  }
-
-  /** An element that fades in and slides up */
-  .scene_element--fadeinup {
-    animation-name: fadeInUp;
-  }
-
-  /** An element that fades in and slides from the right */
-  .scene_element--fadeinright {
-    animation-name: fadeInRight;
-  }
+    animation-name: slideInUp;
 }

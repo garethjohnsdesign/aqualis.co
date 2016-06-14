@@ -52,20 +52,24 @@
 <meta name="msapplication-config" content="/img/icons/browserconfig.xml">
 <meta name="theme-color" content="#2F3BA2">
 
-<!-- <link rel="stylesheet" href="/assets/css/app.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
+		
 <link rel="canonical" href="/contact/">
 <link rel="alternate" type="application/rss+xml" title="Aqualis" href="/feed.xml">
 
 <link rel="stylesheet" href="https://i.icomoon.io/public/0d0b2f3d01/Aqualis/style-svg.css">
 <script defer src="https://i.icomoon.io/public/0d0b2f3d01/Aqualis/svgxuse.js"></script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '', 'auto');
+  ga('create', 'UA-78706041-1', 'auto');
   ga('send', 'pageview');
 
 </script>
@@ -74,25 +78,29 @@
 
 <body>
 
-<section class="container">
+<section class="container" id="wrap">
 	
 <!-- Top -->
 <div class="top">
 <div class="top-bar">
    <div class="top-bar-title"><a href="/"><img src="/assets/img/logo.svg" alt="Aqualis"></a></div>
    <div class="top-bar-left">
-	   <ul class="dropdown menu" data-dropdown-menu>
+	   <ul class="menu">
+<!-- 	   <ul class="dropdown menu" data-dropdown-menu> -->
+<!--
       <li>
-        <a href="#">Fragrances</a>
+        <a class="page-link" href="#">Fragrances</a>
         <ul class="menu vertical">
-	      <li><a href="/fragrances/origin">Origin</a></li>
-	      <li><a href="/fragrances/freedom">Freedom</a></li>
-          <li><a href="/fragrances/coda">Coda</a></li>
-          <li><a href="/fragrances/utopia">Utopia</a></li>
+	      <li><a class="page-link" href="/fragrances/origin" title="Origin">Origin</a></li>
+	      <li><a class="page-link" href="/fragrances/freedom" title="Freedom">Freedom</a></li>
+          <li><a class="page-link" href="/fragrances/coda" title="Coda">Coda</a></li>
+          <li><a class="page-link" href="/fragrances/utopia" title="Utopia">Utopia</a></li>
         </ul>
       </li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+-->   
+      <li><a class="page-link" href="/fragrances/origin" title="Origin">Origin</a></li>
+      <li><a class="page-link" href="/about" title="About">About</a></li>
+      <li><a class="page-link" href="/contact" title="Contact">Contact</a></li>
     </ul>
    </div>
 </div>
@@ -101,17 +109,15 @@
 	
 <!-- Middle -->
 <div class="middle">
-<article class="page">
-	  
-  <div class="row expanded align-center">
-  <div class="small-11 medium-7 columns collapse">
-  
-  <header class="page-header">
-    <h1 class="page-title">Contact</h1>
-  </header>
-  
-  <div class="page-content">
-    <p>Aqualis</p>
+<div class="row expanded align-center">
+<div class="small-11 medium-7 columns collapse">
+
+<header class="page-header">
+<h1 class="page-title">Contact</h1>
+</header>
+
+<div class="page-content">
+<p>Aqualis</p>
 
 <p>35 Westgate St<br />
 Bath, Somerset <br />
@@ -121,11 +127,9 @@ BA1 1El, UK<br />
 <p><a href="mailto:info@aqualis.co">info@aqualis.co</a><br />
 <a href="tel:07880902561">+44(0)7880 902 561</a></p>
 
-  </div>
-  </div>
-  </div>
-
-</article>
+</div>
+</div>
+</div>
 
 </div>
 <!-- End Middle -->
@@ -150,6 +154,8 @@ BA1 1El, UK<br />
 
 </section>
 
+
+<script src="/assets/js/script.js"></script>
 </body>
 <script src="/assets/js/min/app-min.js"></script>
 </html>
