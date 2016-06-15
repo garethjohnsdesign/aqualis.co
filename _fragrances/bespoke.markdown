@@ -2,7 +2,8 @@
 title: Bespoke
 date: 2016-06-10 14:45:00 Z
 position: 5
-header-text: We celebrate individuality and uniqueness, and we embrace creative projects in our fragrance world.
+header-text: We celebrate individuality and uniqueness, and we embrace creative projects
+  in our fragrance world.
 product-image: "/uploads/aqualis-bespoke.jpg"
 illustration-image: "/uploads/aqualis-bespoke-overlay.jpg"
 layout: fragrances
