@@ -11805,6 +11805,28 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/_site\/uploads\/aqualis-bespoke-overlay.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36442,
+		"inputAbbreviatedPath": "\/_site\/uploads\/aqualis-bespoke-overlay.jpg",
+		"outputAbbreviatedPath": "\/_site\/uploads\/aqualis-bespoke-overlay.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_site\/uploads\/aqualis-bespoke.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 81433,
+		"inputAbbreviatedPath": "\/_site\/uploads\/aqualis-bespoke.jpg",
+		"outputAbbreviatedPath": "\/_site\/uploads\/aqualis-bespoke.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/_site\/uploads\/aqualis-coda-overlay.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -11889,6 +11911,28 @@
 		"initialSize": 79311,
 		"inputAbbreviatedPath": "\/_site\/uploads\/aqualis-utopia.jpg",
 		"outputAbbreviatedPath": "\/_site\/uploads\/aqualis-utopia.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_uploads\/aqualis-bespoke-overlay.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36442,
+		"inputAbbreviatedPath": "\/_uploads\/aqualis-bespoke-overlay.jpg",
+		"outputAbbreviatedPath": "\/_uploads\/aqualis-bespoke-overlay.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/_uploads\/aqualis-bespoke.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 81433,
+		"inputAbbreviatedPath": "\/_uploads\/aqualis-bespoke.jpg",
+		"outputAbbreviatedPath": "\/_uploads\/aqualis-bespoke.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
