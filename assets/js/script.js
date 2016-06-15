@@ -1,3 +1,5 @@
+var ga = ga || {};
+
 ( function( $, History, undefined ) {
 
 	if ( !History.enabled ) {
@@ -36,7 +38,7 @@
 					.html( $( elem ).html() )
 					.promise()
 						.done( function( res ) {
-
+							$(document).foundation();
 							if ( typeof ga === "function" && res.length !== 0 ) { // Make sure the new content is added, and the 'ga()' method is available.
 								ga('set', { 
 									page: window.location.pathname,
