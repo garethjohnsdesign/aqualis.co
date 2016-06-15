@@ -29,9 +29,9 @@ Example showing how to change the color/size of the icons:
 
 .icon-info {
   font-size: 2rem;
-  color: $project-grey;
+  color: $project-black;
   @include transition(color .3s ease);
   &:hover {
-    color: $project-black;
+    color: $project-grey;
   }
 }

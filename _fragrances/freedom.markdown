@@ -1,6 +1,6 @@
 ---
 title: Freedom
-date: 2016-06-10 14:42:00 Z
+date: 2016-06-10 14:43:00 Z
 position: 3
 header-text: Freedom has it’s own meaning to each person, and this fragrance intends
   to release us into our own adaptation

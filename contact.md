@@ -1,6 +1,6 @@
 ---
 title: Contact
-layout: page
+layout: contact
 ---
 
 Aqualis
@@ -9,5 +9,5 @@ Bath, Somerset
 BA1 1El, UK  
 Map
 
-info@aqualis.co
+info@aqualis.co  
 +44(0)7880 902 561

@@ -27,13 +27,18 @@ width: 100%;
 }
 
 h1, h3, h4, h5, h6 {
-	text-transform: lowercase;
+	text-transform: uppercase;
 }
 
 // Layout
 
+.page-header {
+	padding-top: 3rem;
+	padding-bottom: 1rem;
+}
+
+
 // Structure
-/*
 .container {
   @include flex();
   flex-direction: column;
@@ -43,13 +48,14 @@ h1, h3, h4, h5, h6 {
 .top {
   @include flex();
   justify-content: flex-start;
-//   flex-direction: column;
+  flex-direction: column;
 }
 
 .middle {
   @include flex();
   justify-content: center;
-//   flex-direction: column;
+  align-items: flex-start;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -59,22 +65,17 @@ h1, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: flex-start;
 }
-*/
 
 // Navigation
 
-/*
 .top-bar {
   border-top: $project-grey 1rem solid;
   padding-bottom: 0rem;
 }
-*/
 
-/*
 .menu>li>a {
   text-transform: uppercase;
 }
-*/
 
 // Fragrances
 
@@ -89,21 +90,52 @@ h1, h3, h4, h5, h6 {
     /* position: absolute; */
 }
 
+/*
 .fragrances-left {
     -webkit-flex: 1;
     flex: 1;
     z-index: 1;
 }
-.fragrances-middle {
-    -webkit-flex: 1;
+*/
+
+.fragrances-left {
+  z-index: 1;
+  // Only affects medium screens and smaller
+  @include breakpoint(medium down) { 
+    flex: 0.1;
+  }
+  // Only affects medium screens, not small or large
+  @include breakpoint(medium) { 
+	-webkit-flex: 1;
     flex: 1;
+  }
+}
+
+.fragrances-middle {
+   // Only affects medium screens and smaller
+  @include breakpoint(medium down) { 
+    flex: 0.8;
+  }
+  // Only affects medium screens, not small or large
+  @include breakpoint(medium) { 
+	-webkit-flex: 1;
+    flex: 1;
+  }
     z-index: 1;
     position: relative;
 }
+
 .fragrances-right {
-    -webkit-flex: 1;
-    flex: 1;
     z-index: 1;
+  // Only affects medium screens and smaller
+  @include breakpoint(medium down) { 
+    flex: 0.1;
+  }
+  // Only affects medium screens, not small or large
+  @include breakpoint(medium) { 
+	-webkit-flex: 1;
+    flex: 1;
+  }
 }
 
 .overlay {
@@ -128,9 +160,10 @@ h1, h3, h4, h5, h6 {
 
 .icon-arrows {
   color: $project-grey;
-  @include transition(color .3s ease);
+  @include transition(color .5s ease);
   &:hover {
     color: $project-dark-grey;
+    @include transition(color .5s ease);
   }
 }
 
@@ -138,7 +171,6 @@ h1, h3, h4, h5, h6 {
 
 .reveal h2 {
   font-family: 'ChronicleDisplay-XLight', serif;
-   font-family: sans-serif;
   line-height: 1;
 }
 
@@ -146,6 +178,8 @@ h1, h3, h4, h5, h6 {
 
 .bottom {
   background-color: $project-grey;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /*
