@@ -2,7 +2,8 @@
 title: Utopia
 date: 2016-06-10 14:44:00 Z
 position: 2
-header-text: Utopia is a dedication to the zenith of our human desires, to live in unity, and in a place of absolute comfort
+header-text: Utopia is a dedication to the zenith of our human desires, to live in
+  unity, and in a place of absolute comfort
 question: What are your Utopias?
 product-image: "/uploads/aqualis-utopia.jpg"
 illustration-image: "/uploads/aqualis-utopia-overlay.jpg"

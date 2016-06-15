@@ -2,7 +2,8 @@
 title: Freedom
 date: 2016-06-10 14:42:00 Z
 position: 3
-header-text: Freedom has it’s own meaning to each person, and this fragrance intends to release us into our own adaptation
+header-text: Freedom has it’s own meaning to each person, and this fragrance intends
+  to release us into our own adaptation
 product-image: "/uploads/aqualis-freedom.jpg"
 illustration-image: "/uploads/aqualis-freedom-overlay.jpg"
 layout: fragrances
