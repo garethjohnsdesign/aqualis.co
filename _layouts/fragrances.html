@@ -28,6 +28,17 @@ layout: default
 <a data-open="{{ page['title'] }}"><svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg></a>
 </div>
 
+<div class="reveal" id="{{ page['title'] }}" data-reveal>
+  <small class="uppercase">FRAGRANCES — {{ page['position'] }}/4</small>
+  <h1>{{ page['title'] }}</h1>
+  <h2>{{ page['header-text'] }}</h2> 
+  {{ page['content'] }}
+  <small>{{ page['question'] }}</small>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <img src="{{ page['product-image'] }}" />
 
 </div>
@@ -48,14 +59,3 @@ layout: default
 
 </div>
 <!-- End Fragrances -->
-
-<div class="reveal" id="{{ page['title'] }}" data-reveal>
-  <small class="uppercase">FRAGRANCES — {{ page['position'] }}/4</small>
-  <h1>{{ page['title'] }}</h1>
-  <h2>{{ page['header-text'] }}</h2> 
-  {{ page['content'] }}
-  <small>{{ page['question'] }}</small>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
