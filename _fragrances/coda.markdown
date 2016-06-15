@@ -1,13 +1,13 @@
 ---
 title: Coda
 date: 2016-06-10 14:43:00 Z
-position: 3
-header-text: For the first fragrance in our collection we used the oldest ingredients
-  in perfumery to create an ode to the first pioneers of fragrance.
-question: What are your Codas?
+position: 4
+header-text: Coda completes Evolution, and the first chapter of the Aqualis legacy
 product-image: "/uploads/aqualis-coda.jpg"
 illustration-image: "/uploads/aqualis-coda-overlay.jpg"
 layout: fragrances
 ---
 
-Origin opens like a dense mass of matter, the big bang ready to explode. Once the chaos has passed, Egyptian Jasmine Absolute and Turkish Rose Absolute are revealed, transforming Origin into an unexpected delicate scent. French Vanilla Bourbon, which brings a sweetness to the base of the fragrance, is complimented by the earthiness of French Patchouli Heart. Finally, Indian Papyrus Oil leaves Origin with a lasting ancient and exotic quality, like the ancient scrolls from the beginning of time.
+Coda concludes the passage of Evolution, and introduces the close of musical symphonies, and the final dance of the Swan in Swan Lake. A natural, deliberate and beautifully considered climax.
+
+Cinnamon Bark Oil and Pressed Egyptian Bergamot creates a hugely unique opening. Turkish Rose Absolute and Egyptian Jasmine Absolute feature, but the true beauty of Coda lies in the base. The sweetness of Indonesian Benzoin Resinoid and highly sensual French Labdanum Absolute provides a base that will endure well after the last notes have sung their final song.

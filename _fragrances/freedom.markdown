@@ -1,13 +1,13 @@
 ---
 title: Freedom
 date: 2016-06-10 14:42:00 Z
-position: 2
-header-text: For the first fragrance in our collection we used the oldest ingredients
-  in perfumery to create an ode to the first pioneers of fragrance.
-question: What are your Freedoms?
+position: 3
+header-text: Freedom has it’s own meaning to each person, and this fragrance intends to release us into our own adaptation
 product-image: "/uploads/aqualis-freedom.jpg"
 illustration-image: "/uploads/aqualis-freedom-overlay.jpg"
 layout: fragrances
 ---
 
-Origin opens like a dense mass of matter, the big bang ready to explode. Once the chaos has passed, Egyptian Jasmine Absolute and Turkish Rose Absolute are revealed, transforming Origin into an unexpected delicate scent. French Vanilla Bourbon, which brings a sweetness to the base of the fragrance, is complimented by the earthiness of French Patchouli Heart. Finally, Indian Papyrus Oil leaves Origin with a lasting ancient and exotic quality, like the ancient scrolls from the beginning of time.
+Freedom was inspired by Brenton on Sea in South Africa, where the South African Loerie birds soar freely over the endless coastline of sea and sand. A place of freedom and inspiration for Aqualis founder Steyn Grobler.
+
+Fresh Pressed Egyptian Bergamot hangs with a comforting scent in the air. A grounding base of Oak Moss and Sun Bleached Driftwood glow in your surroundings, intertwining with wisps of Haitian Vetiver. Waves of Aqueous Salt Water and Mint envelop the nose creating freshness and weightlessness.
