@@ -22,7 +22,7 @@ layout: default
 
 {% if page['illustration-image'] %}
 <div class="overlay animated fadeOut illustration">
-<img src="{{ page['illustration-image'] }}" />
+<img src="{{ page['illustration-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 </div>
 {% endif %}
 
@@ -40,7 +40,7 @@ layout: default
   </button>
 </div>
 
-<img src="{{ page['product-image'] }}" />
+<img src="{{ page['product-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 
 </div>
 <!-- End Middle -->
