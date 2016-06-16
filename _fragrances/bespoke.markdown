@@ -5,7 +5,6 @@ position: 5
 header-text: We celebrate individuality and uniqueness, and we embrace creative projects
   in our fragrance world.
 product-image: "/uploads/aqualis-bespoke.jpg"
-illustration-image: "/uploads/aqualis-bespoke-overlay.jpg"
 layout: fragrances
 ---
 
@@ -15,4 +14,4 @@ Whether it’s a summer wedding, with a particular want for the local blooms to 
 
 Aqualis is the only brand and service to offer bespoke design and concept for the entire fragrance including bottling, labeling, packaging and giftwrapping. This enables you to have total control of all aspects of the fragrance, and allows it to fit seamlessly with your intentions and creative desires.
 
-Please contact bespoke@aqualis.co with any requests or questions.
+Please contact <a href="mailto:bespoke@aqualis.co">bespoke@aqualis.co</a> with any requests or questions.

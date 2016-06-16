@@ -15,12 +15,9 @@ Example showing how to change the color/size of the icons:
 }
 ======================================================================================== */
 
-/*
 .icon-logo {
-	font-size: 6rem;
-	color: $project-black;
+	width: 1.5em;
 }
-*/
 
 .icon-arrows {
 	font-size: 6rem;
@@ -29,6 +26,15 @@ Example showing how to change the color/size of the icons:
 
 .icon-info {
   font-size: 2rem;
+  color: $project-black;
+  @include transition(color .3s ease);
+  &:hover {
+    color: $project-grey;
+  }
+}
+
+.icon-logo {
+  font-size: 5rem;
   color: $project-black;
   @include transition(color .3s ease);
   &:hover {
