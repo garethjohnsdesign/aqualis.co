@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<!-- Fragrances -->
+<div class="fragrances align-middle">
+    
+<!-- Left -->
+<div class="fragrances-left">
+
+<div class="row text-center">
+<div class="small-10 medium-10 large-12 columns">	
+<a class="page-link" href="{{ page.previous.url }}" style="visibility: {% if page.previous %}visible{% else %}hidden{% endif %}" title="{{ page.previous.title }}"><svg class="icon icon-arrows icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg></a>	
+</div>
+</div>
+
+</div>
+<!-- End Left -->
+    
+<!-- Middle Middle -->
+<div class="fragrances-middle">
+
+{% if page['illustration-image'] %}
+<div class="overlay animated fadeOut illustration">
+<img src="{{ page['illustration-image'] }}" />
+</div>
+{% endif %}
+
+<div class="overlay-text">
+<a data-open="{{ page['title'] }}"><svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg></a>
+</div>
+
+<div class="reveal" id="{{ page['title'] }}" data-reveal>
+  <small class="uppercase">FRAGRANCES — {{ page['position'] }}/5</small>
+  <h1>{{ page['title'] }}</h1>
+  <h2>{{ page['header-text'] }}</h2> 
+  {{ page['content'] }}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<img src="{{ page['product-image'] }}" />
+
+</div>
+<!-- End Middle -->
+
+<!-- Right -->
+<div class="fragrances-right">
+
+<div class="row text-center">
+<div class="small-10 medium-10 large-12 columns">	
+<a href="/fragrances/freedom"><svg class="icon icon-arrows icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
+</div>
+</div>
+
+</div>
+<!-- End Right -->
+
+
+</div>
+<!-- End Fragrances -->

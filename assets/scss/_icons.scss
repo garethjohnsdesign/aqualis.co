@@ -41,3 +41,11 @@ Example showing how to change the color/size of the icons:
     color: $project-grey;
   }
 }
+
+.icon-social {
+  color: $project-white;
+  @include transition(color .3s ease);
+  &:hover {
+    color: $project-black;
+  }
+}

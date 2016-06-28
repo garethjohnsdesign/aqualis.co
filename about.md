@@ -17,3 +17,6 @@ EVOLUTION appropriately reverberates a story of evolution and time, and is made 
 
 
 Aqualis was founded by Steyn Grobler and Leonardo DellAgli. They combine a knowledge and vast exposure in the perfume and product design industries, and matched these resources with a shared passion to produce inspirational and stimulating consumer experiences through their fragrances. The very natures and spirits of the founders are embodied in the stunning fragrances, led aptly by the EVOLUTION collection.
+
+# Contact
+<a href="mailto:info@aqualis.co">info@aqualis.co</a>
