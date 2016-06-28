@@ -5,9 +5,24 @@
     <description>Aqualis is an amalgam of ‘Aqua’ and ‘Qualis’, the two founding concepts behind our brand ethos. The term ‘Aqua’ relates to the fragrances, the perfume, the very essence of the brand. ‘Qualis’, which derives from the Latin word ‘Qualia’, is a philosophical term used to define the subjective properties of experience, characterised by a rendering of the unfamiliar into the familiar. Qualia define who we are and how we use all of our senses to interpret the world we live in; a badge of individuality.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Jun 2016 17:35:51 +0000</pubDate>
-    <lastBuildDate>Tue, 28 Jun 2016 17:35:51 +0000</lastBuildDate>
+    <pubDate>Tue, 28 Jun 2016 17:36:41 +0000</pubDate>
+    <lastBuildDate>Tue, 28 Jun 2016 17:36:41 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Testing</title>
+        <description>&lt;p&gt;Hi Hi&lt;/p&gt;
+</description>
+        <pubDate>Tue, 21 Jun 2016 16:54:00 +0000</pubDate>
+        <link>/posts/testing/</link>
+        <guid isPermaLink="true">/posts/testing/</guid>
+        
+        <category>reach for the stars</category>
+        
+        
+        <category>marketing</category>
+        
+      </item>
     
   </channel>
 </rss>
