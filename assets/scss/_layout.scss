@@ -17,7 +17,7 @@ max-width: 100%;
 }
 
 img {
-width: 100%;
+max-width: 100%;
 }
 
 img {
@@ -163,7 +163,13 @@ h1, h3, h4, h5, h6 {
 
 .illustration {
   animation-duration: 2s;
-  animation-delay: 0.75s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+}
+
+.product {
+  animation-duration: 2s;
+  animation-delay: 2s;
   animation-iteration-count: 1;
 }
 

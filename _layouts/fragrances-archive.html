@@ -22,7 +22,7 @@ layout: default
 
 {% if page['illustration-image'] %}
 <div class="overlay animated fadeOut illustration">
-<img data-src="{{ page['illustration-image'] }}" alt="" height="1500" width="2000">
+<img src="{{ page['illustration-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 </div>
 {% endif %}
 
@@ -40,9 +40,7 @@ layout: default
   </button>
 </div>
 
-<div class="animated fadeIn product">
-<img data-src="{{ page['product-image'] }}" alt="" height="1500" width="2000">
-</div>
+<img src="{{ page['product-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 
 </div>
 <!-- End Middle -->
@@ -52,7 +50,7 @@ layout: default
 
 <div class="row text-center">
 <div class="small-10 medium-10 large-12 columns">	
-<a href="/fragrances/freedom"><svg class="icon icon-arrows icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
+<a class="page-link" href="{{ page.next.url }}" style="visibility: {% if page.next %}visible{% else %}hidden{% endif %}" title="{{ page.next.title }}"><svg class="icon icon-arrows icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
 </div>
 </div>
 

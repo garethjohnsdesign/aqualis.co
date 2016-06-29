@@ -54,8 +54,9 @@
 
 <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/history.js/scripts/compressed/history.js"></script>
+<script src="/assets/js/min/fade-min.js"></script>
 		
 <link rel="canonical" href="/fragrances/origin/">
 <link rel="alternate" type="application/rss+xml" title="Aqualis" href="/feed.xml">
@@ -162,7 +163,7 @@
 
 
 <div class="overlay animated fadeOut illustration">
-<img src="/uploads/aqualis-origin-overlay.jpg" alt="Origin" height="1500" width="1000">
+<img data-src="/uploads/aqualis-origin-overlay.jpg" alt="Origin" height="2000" width="1500">
 </div>
 
 
@@ -183,7 +184,9 @@
   </button>
 </div>
 
-<img src="/uploads/aqualis-origin.jpg" alt="Origin" height="1500" width="1000">
+<div class="animated fadeIn product">
+<img data-src="/uploads/aqualis-origin.jpg" alt="Origin" height="2000" width="1500">
+</div>
 
 </div>
 <!-- End Middle -->
