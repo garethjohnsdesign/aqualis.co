@@ -9,7 +9,7 @@ layout: default
 <div class="fragrances-left">
 
 <div class="row text-center">
-<div class="small-10 medium-10 large-12 columns">	
+<div class="small-10 medium-12 large-12 columns">	
 <a class="page-link" href="{{ page.previous.url }}" style="visibility: {% if page.previous %}visible{% else %}hidden{% endif %}" title="{{ page.previous.title }}"><svg class="icon icon-arrows icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg></a>	
 </div>
 </div>
@@ -18,15 +18,15 @@ layout: default
 <!-- End Left -->
     
 <!-- Middle Middle -->
-<div class="fragrances-middle">
+<div class="fragrances-middle animated fadeIn">
 
 {% if page['illustration-image'] %}
 <div class="overlay animated fadeOut illustration">
-<img data-src="{{ page['illustration-image'] }}" alt="{{ page['title'] }}" height="2000" width="1500">
+<img data-src="{{ page['illustration-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 </div>
 {% endif %}
 
-<div class="overlay-text">
+<div class="overlay-text animated fadeIn">
 <a data-open="{{ page['title'] }}"><svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg></a>
 </div>
 
@@ -41,7 +41,7 @@ layout: default
 </div>
 
 <div class="animated fadeIn product">
-<img data-src="{{ page['product-image'] }}" alt="{{ page['title'] }}" height="2000" width="1500">
+<img data-src="{{ page['product-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 </div>
 
 </div>
@@ -51,7 +51,7 @@ layout: default
 <div class="fragrances-right">
 
 <div class="row text-center">
-<div class="small-10 medium-10 large-12 columns">	
+<div class="small-10 medium-12 large-12 columns">	
 <a class="page-link" href="{{ page.next.url }}" style="visibility: {% if page.next %}visible{% else %}hidden{% endif %}" title="{{ page.next.title }}"><svg class="icon icon-arrows icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
 </div>
 </div>

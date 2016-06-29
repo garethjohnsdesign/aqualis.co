@@ -4,9 +4,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Siteleaf, http://siteleaf.com" />
 
-<!-- Verification -->
-<!-- <meta name="google-site-verification" content="KlTWLPuP2NQJxtrtOFkRQGrMd1Nrl9C9avb9NJQKdMQ" /> -->
-
 <title>{% if page.layout == 'index' %}{{ site.title | escape }}{% else %}{{ page.title | escape }}{% endif %}</title>
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 

@@ -35,10 +35,10 @@ Example showing how to change the color/size of the icons:
 
 .icon-logo {
   font-size: 5rem;
-  color: $project-black;
-  @include transition(color .3s ease);
+  fill: rgba(34, 34, 34, 1);
+  @include transition(all .3s ease);
   &:hover {
-    color: $project-grey;
+  fill: rgba(34, 34, 34, 0.5);
   }
 }
 
