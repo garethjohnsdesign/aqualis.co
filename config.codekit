@@ -26156,7 +26156,7 @@
 			}
 		},
 	"uglifyReservedNamesString": "$",
-	"websiteRelativeRoot": "\/_site"
+	"websiteRelativeRoot": ""
 	},
 "settingsFileVersion": "2"
 }
