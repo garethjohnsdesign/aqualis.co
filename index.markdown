@@ -6,7 +6,8 @@ header-text: Origin is an ode to the earliest aspects of universe and the earlie
   pioneers of fragrance
 product-image: "/uploads/aqualis-origin.jpg"
 illustration-image: "/uploads/aqualis-origin-overlay.jpg"
-layout: index
+layout: fragrances
+index: true
 ---
 
 Using a combination of the oldest ingredients in perfumery, Origin expands like a galactic explosion of matter, conceding to the serenity of a new universe.

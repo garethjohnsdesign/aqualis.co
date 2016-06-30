@@ -26,12 +26,20 @@ layout: default
 </div>
 {% endif %}
 
-<div class="overlay-text animated fadeIn">
-<a data-open="{{ page['title'] }}"><svg class="icon icon-info"><use xlink:href="#icon-info"></use></svg></a>
+{% if page.bespoke %}
+<div class="overlay-text">
+<a data-open="{{ page['title'] }}"><svg class="icon icon-info animated pulse infinite"><use xlink:href="#icon-info"></use></svg></a>
 </div>
+{% else %}
+<div class="overlay-text animated fadeIn">
+<a data-open="{{ page['title'] }}"><svg class="icon icon-info animated pulse infinite"><use xlink:href="#icon-info"></use></svg></a>
+</div>
+{% endif %}
 
 <div class="reveal" id="{{ page['title'] }}" data-reveal>
-  <small class="uppercase">FRAGRANCES — {{ page['position'] }}/5</small>
+  {% unless page.bespoke %} 
+  <small class="uppercase">FRAGRANCES — {{ page['position'] }}/4</small>
+  {% endunless %}
   <h1>{{ page['title'] }}</h1>
   <h2>{{ page['header-text'] }}</h2> 
   {{ page['content'] }}
@@ -40,9 +48,15 @@ layout: default
   </button>
 </div>
 
+{% if page.bespoke %}
+<div class="product">
+<img data-src="{{ page['product-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
+</div>
+{% else %}
 <div class="animated fadeIn product">
 <img data-src="{{ page['product-image'] }}" alt="{{ page['title'] }}" height="1500" width="1000">
 </div>
+{% endif %}
 
 </div>
 <!-- End Middle -->
@@ -51,8 +65,12 @@ layout: default
 <div class="fragrances-right">
 
 <div class="row text-center">
-<div class="small-10 medium-12 large-12 columns">	
+<div class="small-10 medium-12 large-12 columns">
+{% if page.index %}
+<a class="page-link" href="/fragrances/utopia" title="Utopia"><svg class="icon icon-arrows icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
+{% else %}
 <a class="page-link" href="{{ page.next.url }}" style="visibility: {% if page.next %}visible{% else %}hidden{% endif %}" title="{{ page.next.title }}"><svg class="icon icon-arrows icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
+{% endif %}
 </div>
 </div>
 

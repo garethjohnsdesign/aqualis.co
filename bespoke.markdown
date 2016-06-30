@@ -6,6 +6,7 @@ header-text: We celebrate individuality and uniqueness, and we embrace creative 
   in our fragrance world.
 product-image: "/uploads/aqualis-bespoke.jpg"
 layout: fragrances
+bespoke: true
 ---
 
 In the Aqualis laboratory, we are continuously working on unique fragrances for individuals and groups that are not available to the public. Aqualis Bespoke creates the unforgettable, yet almost intangible union between the individual and an occasion or place.
