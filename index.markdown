@@ -1,13 +1,13 @@
 ---
-title: Origin
+title: Aqualis
 date: 2016-06-10 14:41:00 Z
 position: 1
 header-text: Origin is an ode to the earliest aspects of universe and the earliest
   pioneers of fragrance
 product-image: "/uploads/aqualis-origin.jpg"
 illustration-image: "/uploads/aqualis-origin-overlay.jpg"
-layout: fragrances
 index: true
+layout: fragrances
 ---
 
 Using a combination of the oldest ingredients in perfumery, Origin expands like a galactic explosion of matter, conceding to the serenity of a new universe.
