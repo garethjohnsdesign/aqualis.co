@@ -5,11 +5,11 @@ position: 5
 header-text: We celebrate individuality and uniqueness, and we embrace creative projects
   in our fragrance world.
 product-image: "/uploads/aqualis-bespoke.jpg"
-layout: fragrances
 bespoke: true
+layout: fragrances
 ---
 
-In the Aqualis laboratory, we are continuously working on unique fragrances for individuals and groups that are not available to the public. Aqualis Bespoke creates the unforgettable, yet almost intangible union between the individual and an occasion or place.
+In the Aqualis laboratory we are continuously working on unique fragrances for individuals and groups that are not available to the public. Aqualis Bespoke creates the unforgettable, yet almost intangible union between the individual and an occasion or place.
 
 Whether it’s a summer wedding, with a particular want for the local blooms to take flight in the fragrance, or an autumn fashion collection supported with a union to a one-off fragrance, the Aqualis team will perfect the scent to complete the vision.
 
