@@ -3,20 +3,12 @@ title: About
 layout: page
 ---
 
-Aqualis represents the nature of experience itself. 
+Aqualis is an amalgam of Aqua and Qualis. 
 
-Aqualis fragrances are created to stimulate a familiar, blissful primal sense. 
+These form the two foundations of our endeavours. Aqua relating to meticulously sourcing unique materials and using them in an innovative way. Qualis describes our subjective conscience experience, a rendering by our senses of the unfamiliar into the familiar. Qualis is each human’s unique take on the world we live in. 
 
-While the senses map our experience of the world, a carefully selected fragrance can acutely dominate and lift ambience, in a tangible yet immeasurable way that we can only experience.
+Aqualis therefore represents the nature of experience itself. While the senses map our experience of the world, a carefully selected fragrance can acutely dominate and lift ambience, in a tangible yet immeasurable way that we can only experience.
 
-Aqualis fragrances unfold and transport the senses, not just to a field of roses, but to a universe of light and dark; of warm and cool; of beginnings and endings; of night and day. The true primal experiences that make us feel alive.
+Aqualis Founder Steyn Grobler was raised in South Africa and moved to London when he was fifteen. He started a career in luxury at seventeen as a model. He worked with some of the best photographers and stylists in the world, appearing from GQ to Vogue. Travelling the globe attending fashion weeks from Korea to Milan. At twenty Steyn studied for four years, gaining an MSc in Business. It was during his studies that a part time job in Harrods turned into a managerial role at Boadicea the Victorious. Completely captivated by the world of fragrance, Steyn developed some of the most prolific fragrances at Boadicea the Victorious. After five years at Boadicea the Victorious it was time to follow his dream of expressing his own creativity, and Aqualis was the result.
 
-Evolution is the inaugural collection in the Aqualis range. 
-
-EVOLUTION appropriately reverberates a story of evolution and time, and is made up of four fragrances; Origin, Utopia, Freedom and Coda. From the quiet of the early universe and the origins of light, to the closing passage of a musical piece, the names and artworks of these finely tuned fragrances track and provide a sensory journey. A step away from conventional perfumery, with a pioneering use of meticulously selected ingredients of the highest quality, the fragrances evolve on the wearer along with their own chemistry and environment.
-
-
-Aqualis was founded by Steyn Grobler and Leonardo DellAgli. They combine a knowledge and vast exposure in the perfume and product design industries, and matched these resources with a shared passion to produce inspirational and stimulating consumer experiences through their fragrances. The very natures and spirits of the founders are embodied in the stunning fragrances, led aptly by the EVOLUTION collection.
-
-# Contact
-<a href="mailto:info@aqualis.co">info@aqualis.co</a>
+The Evolution range is an expression of significant experiences in Steyn’s life. Growing up in Pretoria, spending time in the Namibian Desert and Brenton on Sea on holidays. Steyn used indigenous oils from the Southern African region to showcase these concepts whilst creating contemporary art work and packaging that gives the consumer an immersive experience. Aqualis compels the wearer to think about concepts and creativity, rather than just the fragrance.
