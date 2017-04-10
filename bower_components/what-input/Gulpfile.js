@@ -1,111 +1,113 @@
-var banner        = ['/**',
+const banner        = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
   ' * @link <%= pkg.homepage %>',
   ' * @license <%= pkg.license %>',
   ' */',
-  ''].join('\n');
-var browserSync   = require('browser-sync').create();
-var casperJs      = require('gulp-casperjs');
-var concat        = require('gulp-concat');
-var del           = require('del');
-var gulp          = require('gulp');
-var header        = require('gulp-header');
-var notify        = require('gulp-notify');
-var pkg           = require('./package.json');
-var plumber       = require('gulp-plumber');
-var rename        = require('gulp-rename');
-var runSequence   = require('run-sequence');
-var uglify        = require('gulp-uglify');
-
-
-/*
-  --------------------
-  Clean task
-  --------------------
-*/
-
-gulp.task('clean', function () {
-  return del(['**/.DS_Store']);
-});
-
+  ''].join('\n')
+const browserSync = require('browser-sync').create()
+const concat      = require('gulp-concat')
+const del         = require('del')
+const gulp        = require('gulp')
+const header      = require('gulp-header')
+const notify      = require('gulp-notify')
+const pkg         = require('./package.json')
+const plumber     = require('gulp-plumber')
+const rename      = require('gulp-rename')
+const runSequence = require('run-sequence')
+const standard    = require('gulp-standard')
+const uglify      = require('gulp-uglify')
+const webpack     = require('webpack-stream')
 
 /*
-  --------------------
-  Scripts tasks
-  --------------------
-*/
+ * clean task
+ */
 
-gulp.task('scripts:uglify', function() {
-  return gulp.src(['./what-input.js'])
-    .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
+gulp.task('clean', () => {
+  return del(['**/.DS_Store'])
+})
+
+/*
+ * scripts tasks
+ */
+
+gulp.task('scripts:main', () => {
+  return gulp.src(['./src/what-input.js'])
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: false
     }))
-    .pipe(uglify())
-    .pipe(rename('what-input.min.js'))
+    .pipe(webpack({
+      module: {
+        loaders: [{
+          test: /.jsx?$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          query: {
+            presets: ['es2015']
+          }
+        }]
+      },
+      output: {
+        chunkFilename: '[name].js',
+        library: 'whatInput',
+        libraryTarget: 'umd',
+        umdNamedDefine: true
+      }
+    }))
+    .pipe(rename('what-input.js'))
     .pipe(header(banner, { pkg : pkg } ))
-    .pipe(gulp.dest('./'))
-    .pipe(notify('Scripts uglify task complete'));
-});
+    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./docs/scripts/'))
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(header(banner, { pkg : pkg } ))
+    .pipe(gulp.dest('./dist/'))
+    .pipe(notify('Build complete'))
+})
 
-gulp.task('scripts:ie8', function() {
-  return gulp.src(['./polyfills/ie8/*.js'])
+gulp.task('scripts:ie8', () => {
+  return gulp.src(['./src/polyfills/ie8/*.js'])
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(concat('lte-IE8.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./'))
-    .pipe(notify('IE8 scripts task complete'));
-});
+    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./docs/scripts/'))
+    .pipe(notify('IE8 scripts task complete'))
+})
 
-gulp.task('scripts', function() {
-  runSequence(
-    'scripts:uglify',
-    'scripts:ie8'
-  );
-});
-
+gulp.task('scripts', ['scripts:main', 'scripts:ie8'])
 
 /*
-  --------------------
-  Test runner
-  --------------------
-*/
+ * default task
+ */
 
-gulp.task('test', function () {
-  gulp.src('./tests/*.js')
-    .pipe(casperJs());
-});
-
-
-/*
-  --------------------
-  Default task
-  --------------------
-*/
-
-gulp.task('default', function() {
+gulp.task('default', () => {
   runSequence(
     'clean',
     [
       'scripts'
     ],
-    function() {
+    () => {
       browserSync.init({
         server: {
-          baseDir: './'
+          baseDir: './docs/'
         }
-      });
+      })
 
       gulp.watch([
-        './what-input.js',
+        './src/what-input.js',
         './polyfills/*.js'
-      ], ['scripts']).on('change', browserSync.reload);
+      ], ['scripts']).on('change', browserSync.reload)
 
       gulp.watch([
         './*.html',
-      ]).on('change', browserSync.reload);
+      ]).on('change', browserSync.reload)
     }
-  );
-});
+  )
+})

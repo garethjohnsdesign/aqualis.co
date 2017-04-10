@@ -14,31 +14,36 @@
     var document = window.document;
 
     var _win = $(window);
+    var _deferred = $.Deferred;
     var _html = $('html');
-    var _instanceCount = 0;
+    var _instances = [];
+
+    var _attrAriaHidden = 'aria-hidden';
+    var _dataAriaHidden = 'lity-' + _attrAriaHidden;
+
+    var _focusableElementsSelector = 'a[href],area[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),button:not([disabled]),iframe,object,embed,[contenteditable],[tabindex]:not([tabindex^="-"])';
+
+    var _defaultOptions = {
+        handler: null,
+        handlers: {
+            image: imageHandler,
+            inline: inlineHandler,
+            youtube: youtubeHandler,
+            vimeo: vimeoHandler,
+            googlemaps: googlemapsHandler,
+            facebookvideo: facebookvideoHandler,
+            iframe: iframeHandler
+        },
+        template: '<div class="lity" role="dialog" aria-label="Dialog Window (Press escape to close)" tabindex="-1"><div class="lity-wrap" data-lity-close role="document"><div class="lity-loader" aria-hidden="true">Loading...</div><div class="lity-container"><div class="lity-content"></div><button class="lity-close" type="button" aria-label="Close (Press escape to close)" data-lity-close>&times;</button></div></div></div>'
+    };
 
     var _imageRegexp = /(^data:image\/)|(\.(png|jpe?g|gif|svg|webp|bmp|ico|tiff?)(\?\S*)?$)/i;
     var _youtubeRegex = /(youtube(-nocookie)?\.com|youtu\.be)\/(watch\?v=|v\/|u\/|embed\/?)?([\w-]{11})(.*)?/i;
     var _vimeoRegex =  /(vimeo(pro)?.com)\/(?:[^\d]+)?(\d+)\??(.*)?$/;
     var _googlemapsRegex = /((maps|www)\.)?google\.([^\/\?]+)\/?((maps\/?)?\?)(.*)/i;
+    var _facebookvideoRegex = /(facebook\.com)\/([a-z0-9_-]*)\/videos\/([0-9]*)(.*)?$/i;
 
-    var _defaultHandlers = {
-        image: imageHandler,
-        inline: inlineHandler,
-        iframe: iframeHandler
-    };
-
-    var _defaultOptions = {
-        esc: true,
-        handler: null,
-        template: '<div class="lity" tabindex="-1"><div class="lity-wrap" data-lity-close><div class="lity-loader">Loading...</div><div class="lity-container"><div class="lity-content"></div><button class="lity-close" type="button" title="Close (Esc)" data-lity-close>×</button></div></div></div>'
-    };
-
-    function globalToggle() {
-        _html[_instanceCount > 0 ? 'addClass' : 'removeClass']('lity-active');
-    }
-
-    var transitionEndEvent = (function() {
+    var _transitionEndEvent = (function() {
         var el = document.createElement('div');
 
         var transEndEventNames = {
@@ -58,12 +63,12 @@
     })();
 
     function transitionEnd(element) {
-        var deferred = $.Deferred();
+        var deferred = _deferred();
 
-        if (!transitionEndEvent) {
+        if (!_transitionEndEvent || !element.length) {
             deferred.resolve();
         } else {
-            element.one(transitionEndEvent, deferred.resolve);
+            element.one(_transitionEndEvent, deferred.resolve);
             setTimeout(deferred.resolve, 500);
         }
 
@@ -77,10 +82,11 @@
 
         if (typeof key === 'string') {
             if (typeof value === 'undefined') {
-                return typeof currSettings[key] === 'undefined' ?
-                    null :
-                    currSettings[key];
+                return typeof currSettings[key] === 'undefined'
+                    ? null
+                    : currSettings[key];
             }
+
             currSettings[key] = value;
         } else {
             $.extend(currSettings, key);
@@ -89,8 +95,8 @@
         return this;
     }
 
-    function parseQueryParams(params){
-        var pairs = decodeURI(params).split('&');
+    function parseQueryParams(params) {
+        var pairs = decodeURI(params.split('#')[0]).split('&');
         var obj = {}, p;
 
         for (var i = 0, n = pairs.length; i < n; i++) {
@@ -109,17 +115,28 @@
         return url + (url.indexOf('?') > -1 ? '&' : '?') + $.param(params);
     }
 
+    function transferHash(originalUrl, newUrl) {
+        var pos = originalUrl.indexOf('#');
+
+        if (-1 === pos) {
+            return newUrl;
+        }
+
+        if (pos > 0) {
+            originalUrl = originalUrl.substr(pos);
+        }
+
+        return newUrl + originalUrl;
+    }
+
     function error(msg) {
         return $('<span class="lity-error"/>').append(msg);
     }
 
-    function imageHandler(target) {
-        if (!_imageRegexp.test(target)) {
-            return false;
-        }
-
-        var img = $('<img src="' + target + '">');
-        var deferred = $.Deferred();
+    function imageHandler(target, instance) {
+        var desc = (instance.opener() && instance.opener().data('lity-desc')) || 'Image with no description';
+        var img = $('<img src="' + target + '" alt="' + desc + '"/>');
+        var deferred = _deferred();
         var failed = function() {
             deferred.reject(error('Failed loading image'));
         };
@@ -138,8 +155,12 @@
         return deferred.promise();
     }
 
-    function inlineHandler(target) {
-        var el;
+    imageHandler.test = function(target) {
+        return _imageRegexp.test(target);
+    };
+
+    function inlineHandler(target, instance) {
+        var el, placeholder, hasHideClass;
 
         try {
             el = $(target);
@@ -151,284 +172,463 @@
             return false;
         }
 
-        var placeholder = $('<span style="display:none !important" class="lity-inline-placeholder"/>');
+        placeholder = $('<i style="display:none !important"/>');
+        hasHideClass = el.hasClass('lity-hide');
+
+        instance
+            .element()
+            .one('lity:remove', function() {
+                placeholder
+                    .before(el)
+                    .remove()
+                ;
+
+                if (hasHideClass && !el.closest('.lity-content').length) {
+                    el.addClass('lity-hide');
+                }
+            })
+        ;
 
         return el
+            .removeClass('lity-hide')
             .after(placeholder)
-            .on('lity:ready', function(e, instance) {
-                instance.one('lity:remove', function() {
-                    placeholder
-                        .before(el.addClass('lity-hide'))
-                        .remove()
-                    ;
-                });
+        ;
+    }
+
+    function youtubeHandler(target) {
+        var matches = _youtubeRegex.exec(target);
+
+        if (!matches) {
+            return false;
+        }
+
+        return iframeHandler(
+            transferHash(
+                target,
+                appendQueryParams(
+                    'https://www.youtube' + (matches[2] || '') + '.com/embed/' + matches[4],
+                    $.extend(
+                        {
+                            autoplay: 1
+                        },
+                        parseQueryParams(matches[5] || '')
+                    )
+                )
+            )
+        );
+    }
+
+    function vimeoHandler(target) {
+        var matches = _vimeoRegex.exec(target);
+
+        if (!matches) {
+            return false;
+        }
+
+        return iframeHandler(
+            transferHash(
+                target,
+                appendQueryParams(
+                    'https://player.vimeo.com/video/' + matches[3],
+                    $.extend(
+                        {
+                            autoplay: 1
+                        },
+                        parseQueryParams(matches[4] || '')
+                    )
+                )
+            )
+        );
+    }
+
+    function facebookvideoHandler(target) {
+        var matches = _facebookvideoRegex.exec(target);
+
+        if (!matches) {
+            return false;
+        }
+
+        if (0 !== target.indexOf('http')) {
+            target = 'https:' + target;
+        }
+
+        return iframeHandler(
+            transferHash(
+                target,
+                appendQueryParams(
+                    'https://www.facebook.com/plugins/video.php?href=' + target,
+                    $.extend(
+                        {
+                            autoplay: 1
+                        },
+                        parseQueryParams(matches[4] || '')
+                    )
+                )
+            )
+        );
+    }
+
+    function googlemapsHandler(target) {
+        var matches = _googlemapsRegex.exec(target);
+
+        if (!matches) {
+            return false;
+        }
+
+        return iframeHandler(
+            transferHash(
+                target,
+                appendQueryParams(
+                    'https://www.google.' + matches[3] + '/maps?' + matches[6],
+                    {
+                        output: matches[6].indexOf('layer=c') > 0 ? 'svembed' : 'embed'
+                    }
+                )
+            )
+        );
+    }
+
+    function iframeHandler(target) {
+        return '<div class="lity-iframe-container"><iframe frameborder="0" allowfullscreen src="' + target + '"/></div>';
+    }
+
+    function winHeight() {
+        return document.documentElement.clientHeight
+            ? document.documentElement.clientHeight
+            : Math.round(_win.height());
+    }
+
+    function keydown(e) {
+        var current = currentInstance();
+
+        if (!current) {
+            return;
+        }
+
+        // ESC key
+        if (e.keyCode === 27) {
+            current.close();
+        }
+
+        // TAB key
+        if (e.keyCode === 9) {
+            handleTabKey(e, current);
+        }
+    }
+
+    function handleTabKey(e, instance) {
+        var focusableElements = instance.element().find(_focusableElementsSelector);
+        var focusedIndex = focusableElements.index(document.activeElement);
+
+        if (e.shiftKey && focusedIndex <= 0) {
+            focusableElements.get(focusableElements.length - 1).focus();
+            e.preventDefault();
+        } else if (!e.shiftKey && focusedIndex === focusableElements.length - 1) {
+            focusableElements.get(0).focus();
+            e.preventDefault();
+        }
+    }
+
+    function resize() {
+        $.each(_instances, function(i, instance) {
+            instance.resize();
+        });
+    }
+
+    function registerInstance(instanceToRegister) {
+        if (1 === _instances.unshift(instanceToRegister)) {
+            _html.addClass('lity-active');
+
+            _win
+                .on({
+                    resize: resize,
+                    keydown: keydown
+                })
+            ;
+        }
+
+        $('body > *').not(instanceToRegister.element())
+            .addClass('lity-hidden')
+            .each(function() {
+                var el = $(this);
+
+                if (undefined !== el.data(_dataAriaHidden)) {
+                    return;
+                }
+
+                el.data(_dataAriaHidden, el.attr(_attrAriaHidden) || null);
+            })
+            .attr(_attrAriaHidden, 'true')
+        ;
+    }
+
+    function removeInstance(instanceToRemove) {
+        var show;
+
+        instanceToRemove
+            .element()
+            .attr(_attrAriaHidden, 'true')
+        ;
+
+        if (1 === _instances.length) {
+            _html.removeClass('lity-active');
+
+            _win
+                .off({
+                    resize: resize,
+                    keydown: keydown
+                })
+            ;
+        }
+
+        _instances = $.grep(_instances, function(instance) {
+            return instanceToRemove !== instance;
+        });
+
+        if (!!_instances.length) {
+            show = _instances[0].element();
+        } else {
+            show = $('.lity-hidden');
+        }
+
+        show
+            .removeClass('lity-hidden')
+            .each(function() {
+                var el = $(this), oldAttr = el.data(_dataAriaHidden);
+
+                if (!oldAttr) {
+                    el.removeAttr(_attrAriaHidden);
+                } else {
+                    el.attr(_attrAriaHidden, oldAttr);
+                }
+
+                el.removeData(_dataAriaHidden);
             })
         ;
     }
 
-    function iframeHandler(target) {
-        var matches, url = target;
-
-        matches = _youtubeRegex.exec(target);
-
-        if (matches) {
-            url = appendQueryParams(
-                'https://www.youtube' + (matches[2] || '') + '.com/embed/' + matches[4],
-                $.extend(
-                    {
-                        autoplay: 1
-                    },
-                    parseQueryParams(matches[5] || '')
-                )
-            );
+    function currentInstance() {
+        if (0 === _instances.length) {
+            return null;
         }
 
-        matches = _vimeoRegex.exec(target);
-
-        if (matches) {
-            url = appendQueryParams(
-                'https://player.vimeo.com/video/' + matches[3],
-                $.extend(
-                    {
-                        autoplay: 1
-                    },
-                    parseQueryParams(matches[4] || '')
-                )
-            );
-        }
-
-        matches = _googlemapsRegex.exec(target);
-
-        if (matches) {
-            url = appendQueryParams(
-                'https://www.google.' + matches[3] + '/maps?' + matches[6],
-                {
-                    output: matches[6].indexOf('layer=c') > 0 ? 'svembed' : 'embed'
-                }
-            );
-        }
-
-        return '<div class="lity-iframe-container"><iframe frameborder="0" allowfullscreen src="' + url + '"></iframe></div>';
+        return _instances[0];
     }
 
-    function lity(options) {
-        var _options = {},
-            _handlers = {},
-            _instance,
-            _content,
-            _ready = $.Deferred().resolve();
+    function factory(target, instance, handlers, preferredHandler) {
+        var handler = 'inline', content;
 
-        function keyup(e) {
-            if (e.keyCode === 27) {
-                close();
-            }
+        var currentHandlers = $.extend({}, handlers);
+
+        if (preferredHandler && currentHandlers[preferredHandler]) {
+            content = currentHandlers[preferredHandler](target, instance);
+            handler = preferredHandler;
+        } else {
+            // Run inline and iframe handlers after all other handlers
+            $.each(['inline', 'iframe'], function(i, name) {
+                delete currentHandlers[name];
+
+                currentHandlers[name] = handlers[name];
+            });
+
+            $.each(currentHandlers, function(name, currentHandler) {
+                // Handler might be "removed" by setting callback to null
+                if (!currentHandler) {
+                    return true;
+                }
+
+                if (
+                    currentHandler.test &&
+                    !currentHandler.test(target, instance)
+                ) {
+                    return true;
+                }
+
+                content = currentHandler(target, instance);
+
+                if (false !== content) {
+                    handler = name;
+                    return false;
+                }
+            });
         }
 
-        function resize() {
-            var height = document.documentElement.clientHeight ? document.documentElement.clientHeight : Math.round(_win.height());
+        return {handler: handler, content: content || ''};
+    }
 
-            _content
-                .css('max-height', Math.floor(height) + 'px')
-                .trigger('lity:resize', [_instance])
-            ;
-        }
+    function Lity(target, options, opener, activeElement) {
+        var self = this;
+        var result;
+        var isReady = false;
+        var isClosed = false;
+        var element;
+        var content;
 
-        function ready(el, content) {
-            if (!_instance) {
+        options = $.extend(
+            {},
+            _defaultOptions,
+            options
+        );
+
+        element = $(options.template);
+
+        // -- API --
+
+        self.element = function() {
+            return element;
+        };
+
+        self.opener = function() {
+            return opener;
+        };
+
+        self.options  = $.proxy(settings, self, options);
+        self.handlers = $.proxy(settings, self, options.handlers);
+
+        self.resize = function() {
+            if (!isReady || isClosed) {
                 return;
             }
 
-            _content = $(content);
+            content
+                .css('max-height', winHeight() + 'px')
+                .trigger('lity:resize', [self])
+            ;
+        };
 
-            _win.on('resize', resize);
-            resize();
+        self.close = function() {
+            if (!isReady || isClosed) {
+                return;
+            }
 
-            _instance
-                .find('.lity-loader')
-                .each(function() {
-                    var el = $(this);
-                    transitionEnd(el).always(function() {
-                        el.remove();
-                    });
+            isClosed = true;
+
+            removeInstance(self);
+
+            var deferred = _deferred();
+
+            // We return focus only if the current focus is inside this instance
+            if (
+                activeElement &&
+                (
+                    document.activeElement === element[0] ||
+                    $.contains(element[0], document.activeElement)
+                )
+            ) {
+                try {
+                    activeElement.focus();
+                } catch (e) {
+                    // Ignore exceptions, eg. for SVG elements which can't be
+                    // focused in IE11
+                }
+            }
+
+            content.trigger('lity:close', [self]);
+
+            element
+                .removeClass('lity-opened')
+                .addClass('lity-closed')
+            ;
+
+            transitionEnd(content.add(element))
+                .always(function() {
+                    content.trigger('lity:remove', [self]);
+                    element.remove();
+                    element = undefined;
+                    deferred.resolve();
                 })
             ;
 
-            _instance
+            return deferred.promise();
+        };
+
+        // -- Initialization --
+
+        result = factory(target, self, options.handlers, options.handler);
+
+        element
+            .attr(_attrAriaHidden, 'false')
+            .addClass('lity-loading lity-opened lity-' + result.handler)
+            .appendTo('body')
+            .focus()
+            .on('click', '[data-lity-close]', function(e) {
+                if ($(e.target).is('[data-lity-close]')) {
+                    self.close();
+                }
+            })
+            .trigger('lity:open', [self])
+        ;
+
+        registerInstance(self);
+
+        $.when(result.content)
+            .always(ready)
+        ;
+
+        function ready(result) {
+            content = $(result)
+                .css('max-height', winHeight() + 'px')
+            ;
+
+            element
+                .find('.lity-loader')
+                .each(function() {
+                    var loader = $(this);
+
+                    transitionEnd(loader)
+                        .always(function() {
+                            loader.remove();
+                        })
+                    ;
+                })
+            ;
+
+            element
                 .removeClass('lity-loading')
                 .find('.lity-content')
                 .empty()
-                .append(_content)
+                .append(content)
             ;
 
-            _content
-                .removeClass('lity-hide')
-                .trigger('lity:ready', [_instance, el])
+            isReady = true;
+
+            content
+                .trigger('lity:ready', [self])
             ;
-
-            _ready.resolve();
         }
-
-        function init(handler, content, options, el) {
-            _ready = $.Deferred();
-
-            _instanceCount++;
-            globalToggle();
-
-            _instance = $(options.template)
-                .addClass('lity-loading')
-                .appendTo('body');
-
-            if (!!options.esc) {
-                _win.on('keyup', keyup);
-            }
-
-            setTimeout(function() {
-                _instance
-                    .addClass('lity-opened lity-' + handler)
-                    .on('click', '[data-lity-close]', function(e) {
-                        if ($(e.target).is('[data-lity-close]')) {
-                            close();
-                        }
-                    })
-                    .trigger('lity:open', [_instance, el])
-                ;
-
-                $.when(content).always($.proxy(ready, null, el));
-            }, 0);
-        }
-
-        function open(target, options, el) {
-            var handler, content, handlers = $.extend({}, _defaultHandlers, _handlers);
-
-            options = $.extend(
-                {},
-                _defaultOptions,
-                _options,
-                options
-            );
-
-            if (options.handler && handlers[options.handler]) {
-                content = handlers[options.handler](target, popup);
-                handler = options.handler;
-            } else {
-                var lateHandlers = {};
-
-                // Run inline and iframe handlers after all other handlers
-                $.each(['inline', 'iframe'], function(i, name) {
-                    if (handlers[name]) {
-                        lateHandlers[name] = handlers[name];
-                    }
-
-                    delete handlers[name];
-                });
-
-                var call = function(name, callback) {
-                    // Handler might be "removed" by setting callback to null
-                    if (!callback) {
-                        return true;
-                    }
-
-                    content = callback(target, popup);
-
-                    if (!!content) {
-                        handler = name;
-                        return false;
-                    }
-                };
-
-                $.each(handlers, call);
-
-                if (!handler) {
-                    $.each(lateHandlers, call);
-                }
-            }
-
-            if (content) {
-                $.when(close()).done($.proxy(init, null, handler, content, options, el));
-            }
-
-            return !!content;
-        }
-
-        function close() {
-            if (!_instance) {
-                return;
-            }
-
-            var deferred = $.Deferred();
-
-            _ready.done(function() {
-                _instanceCount--;
-                globalToggle();
-
-                _win
-                    .off('resize', resize)
-                    .off('keyup', keyup)
-                ;
-
-                _content.trigger('lity:close', [_instance]);
-
-                _instance
-                    .removeClass('lity-opened')
-                    .addClass('lity-closed')
-                ;
-
-                var instance = _instance, content = _content;
-                _instance = null;
-                _content = null;
-
-                transitionEnd(content.add(instance)).always(function() {
-                    content.trigger('lity:remove', [instance]);
-                    instance.remove();
-                    deferred.resolve();
-                });
-            });
-
-            return deferred.promise();
-        }
-
-        function popup(event) {
-            // If not an event, act as alias of popup.open
-            if (!event.preventDefault) {
-                return popup.open(event);
-            }
-
-            var el = $(this);
-            var target = el.data('lity-target') || el.attr('href') || el.attr('src');
-
-            if (!target) {
-                return;
-            }
-
-            var options = el.data('lity-options') || el.data('lity');
-
-            if (open(target, options, el)) {
-                el.blur();
-                event.preventDefault();
-            }
-        }
-
-        popup.handlers = $.proxy(settings, popup, _handlers);
-        popup.options = $.proxy(settings, popup, _options);
-
-        popup.open = function(target, options, el) {
-            open(target, options, el);
-            return popup;
-        };
-
-        popup.close = function() {
-            close();
-            return popup;
-        };
-
-        return popup.options(options);
     }
 
-    lity.version = '@VERSION';
-    lity.handlers = $.proxy(settings, lity, _defaultHandlers);
-    lity.options = $.proxy(settings, lity, _defaultOptions);
+    function lity(target, options, opener) {
+        if (!target.preventDefault) {
+            opener = $(opener);
+        } else {
+            target.preventDefault();
+            opener = $(this);
+            target = opener.data('lity-target') || opener.attr('href') || opener.attr('src');
+        }
 
-    $(document).on('click', '[data-lity]', lity());
+        var instance = new Lity(
+            target,
+            $.extend(
+                {},
+                opener.data('lity-options') || opener.data('lity'),
+                options
+            ),
+            opener,
+            document.activeElement
+        );
+
+        if (!target.preventDefault) {
+            return instance;
+        }
+    }
+
+    lity.version  = '@VERSION';
+    lity.options  = $.proxy(settings, lity, _defaultOptions);
+    lity.handlers = $.proxy(settings, lity, _defaultOptions.handlers);
+    lity.current  = currentInstance;
+
+    $(document).on('click.lity', '[data-lity]', lity);
 
     return lity;
 }));

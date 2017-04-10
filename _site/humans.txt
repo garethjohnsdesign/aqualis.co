@@ -1,14 +1,60 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+Gareth Johns Art Direction + Design
 
-# TEAM
+The team, technology & tools behind this site.
 
-  Gareth Johns -- Developer -- @garethjohnsabc
 
-# THANKS
+GARETH JOHNS ART DIRECTION + DESIGN TEAM
+--------
 
-  Jonnie Craig
+Made with love in London.
 
-# TECHNOLOGY COLOPHON
+Gareth Johns
+Content, design & development
+@garethjohnsabc
 
-  HTML5, CSS3, Siteleaf, Foundation 6.2.3, Codekit 2.8
+
+SPECIAL THANKS
+--------------
+
+Skylar Challand
+
+
+TECHNOLOGY
+----------
+
+Siteleaf - Content management system
+siteleaf.com
+
+Foundation - Front-end framework
+foundation.zurb.com
+
+Jekyll - Static site generator
+jekyllrb.com
+
+Sass - CSS pre-processor
+sass-lang.com
+
+Liquid - Templating
+shopify.github.io/liquid
+
+GitHub - Code collaboration & hosting
+github.com
+
+JavaScript libraries include:
+jQuery
+
+
+TOOLS
+-----
+
+Coda - Text editor
+panic.com/coda/
+
+Sketch - Graphics editor
+sketchapp.com
+
+Illustrator & Photoshop - Graphics editor
+adobe.com
+
+Slack - Emojis and GIFs
+slack.com
