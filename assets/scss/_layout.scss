@@ -1,0 +1,205 @@
+// Standard
+
+:focus {
+outline: 0;
+}
+
+::selection {
+  background: $project-white;
+}
+
+::-moz-selection {
+  background: $project-white;
+}
+
+svg {
+max-width: 100%;
+}
+
+img {
+max-width: 100%;
+}
+
+img {
+	opacity: 1;
+	transition: opacity 0.3s;
+}
+
+img[data-src] {
+	opacity: 0;
+}
+
+
+.reveal h2 {
+  font-family: $large-font-family;
+  line-height: 1.1;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+// Typography
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+h1, h3, h4, h5, h6 {
+	text-transform: uppercase;
+}
+
+// Layout
+
+.page-header {
+	padding-top: 3rem;
+	padding-bottom: 1rem;
+}
+
+.page-content {
+	padding-bottom: 3rem;
+}
+
+
+// Structure
+.container {
+  @include flex();
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top {
+  @include flex();
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.middle {
+  @include flex();
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bottom {
+  @include flex();
+  justify-content: middle;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+// Navigation
+
+.top-bar {
+  border-top: $project-grey 1rem solid;
+  padding-bottom: 0rem;
+}
+
+.top-bar-title {
+  margin-left: 1rem;
+  margin-right: 4rem;
+}
+
+.menu>li>a {
+  text-transform: uppercase;
+}
+
+// Fragrances
+
+
+.fragrances {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    /* -webkit-box-orient: horizontal; */
+    z-index: 0;
+    position: relative;
+    /* position: absolute; */
+}
+
+
+
+.fragrances-left {
+  z-index: 1;
+  // Only affects medium screens and smaller
+  @include breakpoint(medium down) { 
+    flex: 0.25;
+  }
+  // Only affects medium screens, not small or large
+  @include breakpoint(medium) { 
+    flex: 1;
+  }
+}
+
+.fragrances-middle {
+   // Only affects medium screens and smaller
+  @include breakpoint(medium down) { 
+    flex: 0.75;
+  }
+  // Only affects medium screens, not small or large
+  @include breakpoint(medium) { 
+    flex: 1;
+  }
+    z-index: 1;
+    position: relative;
+}
+
+.fragrances-right {
+    z-index: 1;
+  // Only affects medium screens and smaller
+  @include breakpoint(medium down) { 
+    flex: 0.25;
+  }
+  // Only affects medium screens, not small or large
+  @include breakpoint(medium) { 
+	-webkit-flex: 1;
+    flex: 1;
+  }
+}
+
+.overlay {
+    z-index: 10;
+    position: absolute;
+    left: 0; top: 0;
+}
+
+.overlay-text {
+    z-index: 20;
+    position: absolute;
+    padding: 2rem;
+    left: 0; bottom: 0;
+    animation-duration: 2s;
+	animation-delay: 3s;
+	animation-iteration-count: 1;
+}
+
+
+.illustration {
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+}
+
+.product {
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+}
+
+.icon-arrows {
+  fill: rgba(0,0,0,.1);
+  @include transition(all .3s ease);
+  &:hover {
+   fill: rgba(0,0,0,.5);
+  }
+}
+
+// Reveal
+
+
+// Footer
+
+.bottom {
+  background-color: $project-grey;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

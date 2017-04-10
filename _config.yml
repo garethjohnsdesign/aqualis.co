@@ -1,0 +1,68 @@
+---
+title: Aqualis
+timezone: UTC
+collections:
+  fragrances:
+    title: Fragrances
+    output: true
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: pages
+  values:
+    layout: page
+url: http://aqualis.co
+description: Aqualis is an amalgam of ‘Aqua’ and ‘Qualis’, the two founding concepts
+  behind our brand ethos. The term ‘Aqua’ relates to the fragrances, the perfume,
+  the very essence of the brand. ‘Qualis’, which derives from the Latin word ‘Qualia’,
+  is a philosophical term used to define the subjective properties of experience,
+  characterised by a rendering of the unfamiliar into the familiar. Qualia define
+  who we are and how we use all of our senses to interpret the world we live in; a
+  badge of individuality.
+permalink: pretty
+exclude:
+- Gruntfile.js
+- Gemfile
+- Gemfile.lock
+- package.json
+- README*
+- node_modules
+- ".gitignore"
+- bower_components
+- config.codekit3
+- CHANGELOG.md
+- LICENSE.md
+- bower.json
+gems:
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-feed
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge
+company: Aqualis
+email: info@aqualis.co
+google_site_verification: GPoNceJPPw9LnlQfOCONgxUFwV4nyFd0Nm_XHgSwsoM
+analytics: UA-78706041-1
+logo: "/assets/img/layout/logo.svg"
+per_page: 12
+date_format: "%b %d, %Y"
+future: true
+social:
+  facebook: https://www.facebook.com/aqualisfragrances
+  instagram: https://www.instagram.com/aqualis_fragrances/
+  twitter: https://twitter.com/Aqualis_parfum
+compress_html:
+  comments:
+  - "<!-- "
+  - " -->"
+  blanklines: true
+  profile: false
