@@ -50,8 +50,8 @@ kramdown:
 highlighter: rouge
 company: Aqualis
 email: info@aqualis.co
-google_site_verification:
-analytics:
+google_site_verification: GPoNceJPPw9LnlQfOCONgxUFwV4nyFd0Nm_XHgSwsoM
+analytics: UA-78706041-1
 logo: "/assets/img/layout/logo.svg"
 per_page: 12
 date_format: "%b %d, %Y"
