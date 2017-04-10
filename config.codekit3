@@ -21,12 +21,6 @@
 		"oAP": "\/.htaccess",
 		"oF": 0
 		},
-	"\/_config.yml": {
-		"ft": 8192,
-		"oA": 1,
-		"oAP": "\/_config.yml",
-		"oF": 0
-		},
 	"\/_fragrances\/coda.markdown": {
 		"ft": 8192,
 		"oA": 2,
@@ -61,12 +55,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/_includes\/footer.html",
-		"oF": 0
-		},
-	"\/_includes\/head.html": {
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/_includes\/head.html",
 		"oF": 0
 		},
 	"\/_includes\/icons.html": {
@@ -1568,42 +1556,6 @@
 		"oA": 2,
 		"oAP": "\/bower_components\/foundation-sites\/.eslintrc",
 		"oF": 0
-		},
-	"\/bower_components\/foundation-sites\/.github\/ISSUE_TEMPLATE.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 2,
-		"oAP": "\/bower_components\/foundation-sites\/.github\/ISSUE_TEMPLATE.md",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
-	"\/bower_components\/foundation-sites\/.github\/PULL_REQUEST_TEMPLATE.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 2,
-		"oAP": "\/bower_components\/foundation-sites\/.github\/PULL_REQUEST_TEMPLATE.md",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
 		},
 	"\/bower_components\/foundation-sites\/.sass-lint.yml": {
 		"ft": 8192,
