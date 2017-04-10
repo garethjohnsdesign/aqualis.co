@@ -29,6 +29,14 @@ img[data-src] {
 	opacity: 0;
 }
 
+
+.reveal h2 {
+  font-family: $large-font-family;
+  line-height: 1.1;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
 // Typography
 
 .uppercase {
@@ -88,6 +96,7 @@ h1, h3, h4, h5, h6 {
 
 .top-bar-title {
   margin-left: 1rem;
+  margin-right: 4rem;
 }
 
 .menu>li>a {
@@ -186,12 +195,6 @@ h1, h3, h4, h5, h6 {
 
 // Reveal
 
-.reveal h2 {
-  font-family: 'ChronicleDisplay-XLight', serif;
-  line-height: 1.1;
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
-}
 
 // Footer
 

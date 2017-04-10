@@ -111,6 +111,7 @@ $block-grid-max: 8;
 
 // $header-font-family: $body-font-family;
 $header-font-family: 'Gotham-Medium', Helvetica, Roboto, Arial, sans-serif;
+$large-font-family: 'ChronicleDisplay-XLight', serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
@@ -631,6 +632,6 @@ $topbar-padding: 1rem;
 // $topbar-background: $light-gray;
 $topbar-background: $project-white;
 $topbar-submenu-background: $topbar-background;
-$topbar-title-spacing: 1rem;
+$topbar-title-spacing: 0rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
